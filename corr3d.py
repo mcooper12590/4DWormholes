@@ -1,7 +1,7 @@
 import imageio
 import numpy as np
 import matplotlib.pyplot as plt
-from acf import corr2d as corr
+from acf import corr3d as corr
 
 rdir = "/media/maxc/IcyBox/Cooper2021_Data/"
 sname = "PZ103"
