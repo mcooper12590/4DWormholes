@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import glob
 
 rdir = "/media/maxc/IcyBox/Cooper2021_Data/"
-sname = "PZ101"
+sname = "PIN43"
 recondir = f"{rdir}{sname}/Tomography/Initial/"
 
 ifile = f"{recondir}{sname}_Initial.tif"
