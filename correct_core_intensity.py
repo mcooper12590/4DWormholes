@@ -1,25 +1,30 @@
 import imageio
-from skimage import io
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
 
-imgloc = sorted(glob.glob("SlicesY/*.tif"))
+rdir = "/media/maxc/IcyBox/Cooper2021_Data/"
+sname = "PZ101"
+recondir = f"{rdir}{sname}/Tomography/Initial/"
 
-img = io.concatenate_images(io.ImageCollection(imgloc))
-mask = imageio.volread("HolderMask.tif").astype(bool)
+ifile = f"{recondir}{sname}_Initial.tif"
+mfile = f"{recondir}{sname}_HolderMask.tif"
+
+img = imageio.volread(ifile)
+mask = imageio.volread(mfile).astype(bool)
 
 algray = np.mean(mask*img, axis=(1,2))
 
 plt.plot(algray)
 plt.show()
 almedian = np.median(algray)
-# alsub = algray - almedian
-# mask = (img.T.astype(int32)-alsub)>0
-# img_c = subtract(img.T, alsub, where=mask)
 cf = almedian/algray
+
 img_c = (img.T*cf).astype(np.uint16)
 img_c = img_c.T
+
 plt.plot(np.mean(img_c[:,:40,:40], axis=(1,2)))
 plt.show()
-imageio.mimwrite("whole_PIN43_CorrectedMult.tif", img_c)
+
+ofile = f"{recondir}{sname}_Corrected.tif"
+imageio.volwrite(ofile, img_c)
