@@ -10,10 +10,10 @@ mfile = f"{recondir}{sname}_AirMask.tif"
 mask = ~(imageio.volread(mfile).astype(bool))
 print(f"Loaded mask: {mfile}")
 
-ifile = f"{recondir}{sname}_InitialCropped.tif"
+ifile = f"{recondir}{sname}_Initial_Cropped.tif"
 img = imageio.volread(ifile)
 print(f"Loaded img: {ifile}")
 res = mask*img
 
-ofile = f"{recondir}{sname}_InitialMasked.tif"
+ofile = f"{recondir}{sname}_Initial_Masked.tif"
 imsave(ofile, res, bigtiff=True)
