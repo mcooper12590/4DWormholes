@@ -34,3 +34,4 @@ To run correlations the acf package must be compiled by running setup.py in the 
 Notebooks 'PIN43_4D.ipynb' and 'PZ103_4D.ipynb' generate difference images, skeletons, and measure tip position from the 4D data sets. 'MainPlottingandAnalysis.ipynb' performs data analysis for the main text, while 'SupplementalPlotting.ipynb' performs data analysis for the supplemental. These are run in Jupyter Notebook.
 
 ## Generating results from Cooper et al.
+The data and code available can reproduce the results from tomography and thin sections. 4D tomography data are available for PIN103 and PZ43 along with initial tomography. Initial tomography and thin section data are available for PZ101.
