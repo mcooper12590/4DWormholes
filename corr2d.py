@@ -2,11 +2,31 @@ import imageio
 import numpy as np
 import matplotlib.pyplot as plt
 from acf import corr2d as corr
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-n','--tsnum')
+parser.add_argument('-d','--dir')
+parser.add_argument('-s', '--sname')
+
+args = parser.parse_args()
 
 rdir = "/media/maxc/IcyBox/Cooper2021_Data/"
-sname = "PZ101"
-thins = f"{rdir}{sname}/ThinSections/"
-tsnum = "10"
+if args.sname:
+    sname = args.sname
+else:
+    sname = "PZ101"
+
+if args.dir:
+    thins = args.dir
+else:
+    thins = f"{rdir}{sname}/ThinSections/"
+
+if args.tsnum:
+    tsnum = args.tsnum
+else:
+    tsnum = "10"
+
 tsdir = f"{thins}{tsnum}/"
 
 # Load image to check. Img should just be thin section, with rest
