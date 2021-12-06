@@ -2,19 +2,38 @@ import imageio
 import numpy as np
 import matplotlib.pyplot as plt
 from acf import corr3d as corr
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-d','--dir')
+parser.add_argument('-s', '--sname')
+parser.add_argument('-i', '--ifile')
+
+args = parser.parse_args()
 
 rdir = "/media/maxc/IcyBox/Cooper2021_Data/"
-sname = "PZ103"
-recondir = f"{rdir}{sname}_Initial/"
+
+if args.sname:
+    sname = args.sname
+else:
+    sname = "PZ103"
+
+if args.dir:
+    recondir = args.dir
+else:
+    recondir = f"{rdir}{sname}/Initial/"
 
 # Load image to check. Img should just be thin section, with rest
 # masked off as zeros.
-iname = f"{recondir}{sname}_Initial_SmallCrop.tif"
+if args.ifile:
+    iname = args.ifile
+else:
+    iname = f"{recondir}{sname}_Initial_SmallCrop.tif"
 img = imageio.volread(iname).astype(np.float32) # Type should have number of bits higher than original data type, e.g. 16bit uint -> 32bit float
 print(f"Loaded img: {iname}")
 
-ofile=f"{rdir}/{sname}_correlation_data/c_e01.dat"
-efile=f"{rdir}/{sname}_correlation_data/e01.dat"
+ofile=f"{recondir}/{sname}_correlation_data/c_e01.dat"
+efile=f"{recondir}/{sname}_correlation_data/e01.dat"
 
 mask = img>0 # Mask of indices where core is located
 g_bar = np.mean(img[mask]) # mean grayscale value in thin section
