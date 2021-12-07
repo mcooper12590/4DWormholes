@@ -18,7 +18,7 @@ recondir = f"{rdir}{sname}/Tomography/"
 if args.ifile:
     ifile = args.ifile
 else:
-    ifile = f"{recondir}{sname}_Initial_Cropped.tif"
+    ifile = f"{recondir}{sname}_Initial_Masked.tif"
 
 img = imageio.volread(ifile)
 print(f"Loaded image: {img}")
