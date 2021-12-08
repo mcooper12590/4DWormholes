@@ -37,12 +37,10 @@ To run correlations the acf package must be compiled by running setup.py in the 
 Notebooks 'PIN43_4D.ipynb' and 'PZ103_4D.ipynb' generate difference images, skeletons, and measure tip position from the 4D data sets. 'MainPlottingandAnalysis.ipynb' performs data analysis for the main text, while 'SupplementalPlotting.ipynb' performs data analysis for the supplemental. These are run in Jupyter Notebook.
 
 ## Results from Cooper et al.
-The data and code available can reproduce the results from tomography and thin sections. 4D tomography data are available for PIN103 and PZ43 along with initial tomography, and scan timings. Initial tomography and thin section data are available for PZ101. These data are available at ... When downloaded, PATH_TO_DOWNLOAD/ refers to the directory containing sample subdirectories.
+Data measured from tomography and thin sections (Acf, avg. intensity, tip position) is available in the WormholeGrowth/ directory, as well as pressure log data, numerical model data, and (U)SANS data. These data can be analysed in 'MainPlottingandAnalysis.ipynb' and 'SupplementalPlotting.ipynb'.
 
-Data measured from tomography and thin sections (Acf, avg. intensity, tip position) is available in the WormholeGrowth/ directory, as well as pressure log data, numerical model data, and (U)SANS data.
-
-### Generating results from Tomography and thin sections
-To generate results from tomography and thin sections the data is first reduced using masks. For PIN43 there is an additional intensity correction step prior to masking, and a separate mask script available in the PZ43 data directory.
+### Generating results from full data
+Full tomography and thin section data are available upon request. When downloaded, PATH_TO_DOWNLOAD/ refers to the top directory containing sample subdirectories. To generate results the data is first reduced using masks. For PIN43 there is an additional intensity correction step prior to masking, and a separate mask script available in the PZ43 data directory.
 
 Processing PZ103:
 ```
